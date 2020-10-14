@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: TextToSpeech
+  thymeleaf:
+    cache: false
+
+server:
+  servlet:
+    context-path: /tts
