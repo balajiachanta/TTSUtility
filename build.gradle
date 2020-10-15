@@ -35,7 +35,11 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	compile group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
-
+	compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.2'
+	compile group: 'de.dfki.mary', name: 'voice-cmu-bdl-hsmm', version: '5.2'
+	compile group: 'de.dfki.mary', name: 'voice-cmu-rms-hsmm', version: '5.2'
+	compile group: 'de.dfki.mary', name: 'marytts-lang-te', version: '5.2'
+	compile group: 'de.dfki.mary', name: 'voice-cmu-nk-hsmm', version: '5.2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

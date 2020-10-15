@@ -19,6 +19,7 @@ public class TtsUtilityApplication {
 
 	@PostConstruct
 	public void init() {
+		System.setProperty("java.version","155");
 		AwsCredentialsProvider awsCredentialsProvider = DefaultCredentialsProvider.builder().build();
 	}
 }

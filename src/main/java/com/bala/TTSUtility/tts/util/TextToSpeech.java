@@ -1,4 +1,3 @@
-/*
 package com.bala.TTSUtility.tts.util;
 
 import java.io.IOException;
@@ -27,11 +26,9 @@ public class TextToSpeech {
 
 	private LanguageConfig languageConfig;
 	
-	*/
-/**
+	/**
 	 * Constructor
-	 *//*
-
+	 */
 	public TextToSpeech() {
 		try {
 			marytts = new LocalMaryInterface();
@@ -43,8 +40,7 @@ public class TextToSpeech {
 	
 	//----------------------GENERAL METHODS---------------------------------------------------//
 	
-	*/
-/**
+	/**
 	 * Transform text to speech
 	 * 
 	 * @param text
@@ -57,8 +53,7 @@ public class TextToSpeech {
 	 *            <br>
 	 *            <b>True</b> The current Thread calling this method will wait(blocked) until the Thread which is playing the Speech finish <br>
 	 *            <b>False</b> The current Thread calling this method will continue freely after calling this method
-	 *//*
-
+	 */
 	public void speak(String text , float gainValue , boolean daemon , boolean join) {
 		
 		// Stop the previous player
@@ -86,11 +81,9 @@ public class TextToSpeech {
 		}
 	}
 	
-	*/
-/**
+	/**
 	 * Stop the MaryTTS from Speaking
-	 *//*
-
+	 */
 	public void stopSpeaking() {
 		// Stop the previous player
 		if (tts != null)
@@ -99,46 +92,38 @@ public class TextToSpeech {
 	
 	//----------------------GETTERS---------------------------------------------------//
 	
-	*/
-/**
+	/**
 	 * Available voices in String representation
 	 * 
 	 * @return The available voices for MaryTTS
-	 *//*
-
+	 */
 	public Collection<Voice> getAvailableVoices() {
 		return Voice.getAvailableVoices();
 	}
 	
-	*/
-/**
+	/**
 	 * @return the marytts
-	 *//*
-
+	 */
 	public MaryInterface getMarytts() {
 		return marytts;
 	}
 	
-	*/
-/**
+	/**
 	 * Return a list of available audio effects for MaryTTS
 	 * 
 	 * @return
-	 *//*
-
+	 */
 	public List<AudioEffect> getAudioEffects() {
 		return StreamSupport.stream(AudioEffects.getEffects().spliterator(), false).collect(Collectors.toList());
 	}
 	
 	//----------------------SETTERS---------------------------------------------------//
 	
-	*/
-/**
+	/**
 	 * Change the default voice of the MaryTTS
 	 * 
 	 * @param voice
-	 *//*
-
+	 */
 	public void setVoice(String voice) {
 		marytts.setVoice(voice);
 	}
@@ -147,4 +132,4 @@ public class TextToSpeech {
 		marytts.setInputType(input);
 	}
 	
-}*/
+}

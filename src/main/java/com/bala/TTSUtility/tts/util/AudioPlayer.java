@@ -1,4 +1,3 @@
-/*
 package com.bala.TTSUtility.tts.util;
 
 import java.io.File;
@@ -34,112 +33,91 @@ public class AudioPlayer extends Thread {
 	private boolean exitRequested = false;
 	private float gain = 1.0f;
 
-	*/
-/**
+	/**
 	 * The status of the player
 	 *
 	 * @author GOXR3PLUS
 	 *
-	 *//*
-
+	 */
 	public enum Status {
-		*/
-/**
+		/**
 		 *
-		 *//*
-
+		 */
 		WAITING,
-		*/
-/**
+		/**
 		 *
-		 *//*
-
+		 */
 		PLAYING;
 	}
 
-	*/
-/**
+	/**
 	 * AudioPlayer which can be used if audio stream is to be set separately, using setAudio().
 	 *
-	 *//*
-
+	 */
 	public AudioPlayer() {
 	}
 
-	*/
-/**
+	/**
 	 * @param audioFile
 	 * @throws IOException
 	 * @throws UnsupportedAudioFileException
-	 *//*
-
+	 */
 	public AudioPlayer(File audioFile) throws IOException, UnsupportedAudioFileException {
 		this.ais = AudioSystem.getAudioInputStream(audioFile);
 	}
 
-	*/
-/**
+	/**
 	 * @param ais
-	 *//*
-
+	 */
 	public AudioPlayer(AudioInputStream ais) {
 		this.ais = ais;
 	}
 
-	*/
-/**
+	/**
 	 * @param audioFile
 	 * @param lineListener
 	 * @throws IOException
 	 * @throws UnsupportedAudioFileException
-	 *//*
-
+	 */
 	public AudioPlayer(File audioFile, LineListener lineListener) throws IOException, UnsupportedAudioFileException {
 		this.ais = AudioSystem.getAudioInputStream(audioFile);
 		this.lineListener = lineListener;
 	}
 
-	*/
-/**
+	/**
 	 * @param ais
 	 * @param lineListener
-	 *//*
-
+	 */
 	public AudioPlayer(AudioInputStream ais, LineListener lineListener) {
 		this.ais = ais;
 		this.lineListener = lineListener;
 	}
 
-	*/
-/**
+	/**
 	 * @param audioFile
 	 * @param line
 	 * @param lineListener
 	 * @throws IOException
 	 * @throws UnsupportedAudioFileException
-	 *//*
-
+	 */
 	public AudioPlayer(File audioFile, SourceDataLine line, LineListener lineListener) throws IOException, UnsupportedAudioFileException {
 		this.ais = AudioSystem.getAudioInputStream(audioFile);
 		this.line = line;
 		this.lineListener = lineListener;
 	}
 
-	*/
-/**
+	/**
 	 * @param ais
 	 * @param line
 	 * @param lineListener
-	 *//*
-
+	 */
 	public AudioPlayer(AudioInputStream ais, SourceDataLine line, LineListener lineListener) {
 		this.ais = ais;
 		this.line = line;
 		this.lineListener = lineListener;
 	}
 
-	*/
-/**
+	/**
 	 *
 	 * @param audioFile
 	 *            audiofile
@@ -154,8 +132,7 @@ public class AudioPlayer extends Thread {
 	 *             IOException
 	 * @throws UnsupportedAudioFileException
 	 *             UnsupportedAudioFileException
-	 *//*
-
+	 */
 	public AudioPlayer(File audioFile, SourceDataLine line, LineListener lineListener, int outputMode) throws IOException, UnsupportedAudioFileException {
 		this.ais = AudioSystem.getAudioInputStream(audioFile);
 		this.line = line;
@@ -163,8 +140,7 @@ public class AudioPlayer extends Thread {
 		this.outputMode = outputMode;
 	}
 
-	*/
-/**
+	/**
 	 *
 	 * @param ais
 	 *            ais
@@ -175,8 +151,7 @@ public class AudioPlayer extends Thread {
 	 * @param outputMode
 	 *            if MONO, force output to be mono; if STEREO, force output to be STEREO; if LEFT_ONLY, play a mono signal over the left channel of a
 	 *            stereo output, or mute the right channel of a stereo signal; if RIGHT_ONLY, do the same with the right output channel.
-	 *//*
-
+	 */
 	public AudioPlayer(AudioInputStream ais, SourceDataLine line, LineListener lineListener, int outputMode) {
 		this.ais = ais;
 		this.line = line;
@@ -184,11 +159,9 @@ public class AudioPlayer extends Thread {
 		this.outputMode = outputMode;
 	}
 
-	*/
-/**
+	/**
 	 * @param audio
-	 *//*
-
+	 */
 	public void setAudio(AudioInputStream audio) {
 		if (status == Status.PLAYING) {
 			throw new IllegalStateException("Cannot set audio while playing");
@@ -196,11 +169,9 @@ public class AudioPlayer extends Thread {
 		this.ais = audio;
 	}
 
-	*/
-/**
+	/**
 	 * Cancel the AudioPlayer which will cause the Thread to exit
-	 *//*
-
+	 */
 	public void cancel() {
 		if (line != null) {
 			line.stop();
@@ -208,31 +179,25 @@ public class AudioPlayer extends Thread {
 		exitRequested = true;
 	}
 
-	*/
-/**
+	/**
 	 * @return The SourceDataLine
-	 *//*
-
+	 */
 	public SourceDataLine getLine() {
 		return line;
 	}
 
-	*/
-/**
+	/**
 	 * Returns the GainValue
-	 *//*
-
+	 */
 	public float getGainValue() {
 		return gain;
 	}
 
-	*/
-/**
+	/**
 	 * Sets Gain value. Line should be opened before calling this method. Linear scale 0.0 <--> 1.0 Threshold Coef. : 1/2 to avoid saturation.
 	 *
 	 * @param fGain
-	 *//*
-
+	 */
 	public void setGain(float fGain) {
 
 		// if (line != null)
@@ -320,4 +285,4 @@ public class AudioPlayer extends Thread {
 		line.close();
 	}
 
-}*/
+}
